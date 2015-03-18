@@ -83,3 +83,104 @@ mixin ibtn
     - _btnMeta(attributes)
     - attributes.type = attributes.type || 'button'
     input.btn&attributes(attributes)
+    
+mixin btn-like(num)
+  a(href="#" title="Like").btn.btn-default #{num}
+    span.sr-only Like
+    if num
+      i.icon-like.icon-after
+    else
+      i.icon-like
+
+mixin btn-liked(num)
+  a(href="#" title="Unlike").btn.btn-default.active #{num}
+    span.sr-only Unlike
+    if num
+      i.icon-like-filled.icon-after
+    else
+      i.icon-like-filled
+
+mixin btn-dislike(num)
+  a(href="#" title="Dislike").btn.btn-default #{num}
+    span.sr-only Dislike
+    if num
+      i.icon-dislike.icon-after
+    else
+      i.icon-dislike
+
+mixin btn-disliked(num)
+  a(href="#" title="Remove Dislike").btn.btn-default.active #{num}
+    span.sr-only Remove Dislike
+    if num
+      i.icon-dislike-filled.icon-after
+    else
+      i.icon-dislike-filled
+
+mixin btn-heart(num)
+  a(href="#" title="Like").btn.btn-default #{num}
+    span.sr-only Like
+    if num
+      i.icon-heart.icon-after
+    else
+      i.icon-heart
+
+mixin btn-hearted(num)
+  a(href="#" title="Unlike").btn.btn-default.active #{num}
+    span.sr-only Unlike
+    if num
+      i.icon-heart-filled.icon-after
+    else
+      i.icon-heart-filled
+
+mixin btn-reply
+  a(href="#", title="Reply").btn.btn-default
+    span.sr-only Reply
+    i.icon-reply
+
+mixin btn-retweet
+  a(href="#" title="Retweet").btn.btn-default
+    span.sr-only Retweet
+    i.icon-retweet
+
+mixin btn-fav
+  a(href="#" title="Favourite").btn.btn-default
+    i.icon-star
+    span.sr-only Favourite
+
+mixin btn-faved
+  a(href="#" title="Unfavourite").btn.btn-default
+    i.icon-star-filled
+    span.sr-only Unfavourite
+
+mixin btn-comment(num)
+  a(href="#" title="Comment").btn.btn-default #{num}
+    span.sr-only Comment
+    if num
+      i.icon-comment.icon-after
+    else
+      i.icon-comment
+
+mixin btn-pin
+  a(href="#" title="Pin it").btn.btn-default Pin it
+
+mixin btn-pinned
+  a(href="#" title="Unpin it").btn.btn-default Unpin it
+
+mixin btn-visit
+  a(href="#" title="Visit Site" class!=attributes.class).btn.btn-default Visit Site
+
+mixin btn-more(menu)
+  if !menu
+    -var menu = ["Report", "Share"]
+  .btn-group.dropup
+    a(href="#" data-toggle="dropdown").btn.btn-default.dropdown-toggle
+      span.sr-only More
+      i.icon-more
+    ul(role="menu").dropdown-menu
+      each text in menu
+        li: a(href="#")= text
+
+mixin btn-edit
+  a(href="#" data-toggle="dropdown" title="Edit" class!=attributes.class).btn.btn-default
+    span Edit
+    i.icon-edit.icon-after
